@@ -1,0 +1,53 @@
+{
+  "schema": "siediff.controls.v1",
+  "ledger_sha256": "2684497c90808cab4bb24d5d43afe2f046118bd6bcdac2491cbeef6eb1e24382",
+  "organization": "000000-0000",
+  "organization_parts": [],
+  "currency": "SEK",
+  "fiscal_period": {
+    "start": "20260101",
+    "end": "20261231"
+  },
+  "through": "20260228",
+  "coverage": "complete_asserted",
+  "omission_means_zero": false,
+  "review_ref": "fictional-author-not-accountant-approval",
+  "controls": [
+    {
+      "id": "bank-opening",
+      "kind": "opening",
+      "account": "1930",
+      "objects": [],
+      "expected": "2000000",
+      "evidence_sha256": "4fb9693ed23b563f8cfa529640f8726987f8bfba72f72b2b85bf71a0b2ce67b2",
+      "evidence_locator": "fictional authored control bank-opening"
+    },
+    {
+      "id": "bank-closing",
+      "kind": "closing",
+      "account": "1930",
+      "objects": [],
+      "expected": "1812500",
+      "evidence_sha256": "4fb9693ed23b563f8cfa529640f8726987f8bfba72f72b2b85bf71a0b2ce67b2",
+      "evidence_locator": "fictional authored control bank-closing"
+    },
+    {
+      "id": "bank-movement",
+      "kind": "movement",
+      "account": "1930",
+      "objects": [],
+      "expected": "-187500",
+      "evidence_sha256": "4fb9693ed23b563f8cfa529640f8726987f8bfba72f72b2b85bf71a0b2ce67b2",
+      "evidence_locator": "fictional authored control bank-movement"
+    },
+    {
+      "id": "bank-bridge",
+      "kind": "bridge",
+      "account": "1930",
+      "objects": [],
+      "expected": "0",
+      "evidence_sha256": "4fb9693ed23b563f8cfa529640f8726987f8bfba72f72b2b85bf71a0b2ce67b2",
+      "evidence_locator": "fictional authored control bank-bridge"
+    }
+  ]
+}

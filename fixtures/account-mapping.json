@@ -1,0 +1,11 @@
+{
+  "schema": "siediff.mapping.v1",
+  "left_sha256": "2684497c90808cab4bb24d5d43afe2f046118bd6bcdac2491cbeef6eb1e24382",
+  "right_sha256": "02aeb860295a2c57ef295ef9406ccea25098aec276838b54e93c04038f2ef076",
+  "review_ref": "fictional-approved-mapping",
+  "accounts": {
+    "6540": "6550"
+  },
+  "dimensions": {},
+  "objects": {}
+}

@@ -1,0 +1,26 @@
+{
+  "schema": "siediff.controls.v1",
+  "ledger_sha256": "ff548a89d46e11984a367dfb6200e9b80243a64429517201bb51f43f7640ef06",
+  "organization": "000000-0000",
+  "organization_parts": [],
+  "currency": "SEK",
+  "fiscal_period": {
+    "start": "20260101",
+    "end": "20261231"
+  },
+  "through": "20260228",
+  "coverage": "complete_asserted",
+  "omission_means_zero": false,
+  "review_ref": "fictional-author-not-accountant-approval",
+  "controls": [
+    {
+      "id": "supplier-closing",
+      "kind": "closing",
+      "account": "2440",
+      "objects": [],
+      "expected": "0",
+      "evidence_sha256": "4fb9693ed23b563f8cfa529640f8726987f8bfba72f72b2b85bf71a0b2ce67b2",
+      "evidence_locator": "fictional authored control supplier-closing"
+    }
+  ]
+}

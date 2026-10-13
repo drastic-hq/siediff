@@ -1,0 +1,15 @@
+{
+  "schema": "fictional.bank-observations.v1",
+  "fictional": true,
+  "currency": "SEK",
+  "opening_minor": "2000000",
+  "movements_minor": [
+    "-100000",
+    "-87500"
+  ],
+  "closing_minor": "1812500",
+  "period": {
+    "start": "20260101",
+    "end": "20260228"
+  }
+}

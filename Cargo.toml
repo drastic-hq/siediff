@@ -1,0 +1,24 @@
+[workspace]
+members = ["wasm"]
+resolver = "2"
+
+[package]
+name = "siediff"
+version = "0.2.0"
+edition = "2021"
+rust-version = "1.99"
+publish = false
+license = "MIT OR Apache-2.0"
+description = "Offline, evidence-bounded semantic comparison of SIE accounting exports"
+
+[dependencies]
+serde = { version = "=1.0.228", features = ["derive"] }
+serde_json = "=1.0.145"
+sha2 = "=0.10.9"
+
+[profile.release]
+overflow-checks = true
+lto = "thin"
+
+[lints.rust]
+unsafe_code = "forbid"

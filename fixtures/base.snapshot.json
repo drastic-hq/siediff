@@ -1,0 +1,527 @@
+{
+  "schema": "siediff.snapshot.v1",
+  "basis": {
+    "book_id": "fictional-book",
+    "revision": "fixture-revision-001",
+    "captured_at": "2026-03-01T00:00:00Z",
+    "projection": "posted_with_sie_history_v1",
+    "source_artifacts": [
+      "2684497c90808cab4bb24d5d43afe2f046118bd6bcdac2491cbeef6eb1e24382"
+    ]
+  },
+  "organization": "000000-0000",
+  "organization_parts": [],
+  "currency": "SEK",
+  "chart_family": "EUBAS97",
+  "name": "SIEDiff Fiktiv AB",
+  "extent_date": "20260228",
+  "years": [
+    {
+      "ordinal": 0,
+      "start": "20260101",
+      "end": "20261231"
+    }
+  ],
+  "accounts": [
+    {
+      "number": "1930",
+      "name": "Fiktivt bankkonto",
+      "kind": "T",
+      "unit": null
+    },
+    {
+      "number": "2091",
+      "name": "Fiktivt eget kapital",
+      "kind": "S",
+      "unit": null
+    },
+    {
+      "number": "2440",
+      "name": "Fiktiv leverantörsskuld",
+      "kind": "S",
+      "unit": null
+    },
+    {
+      "number": "2641",
+      "name": "Fiktiv ingående moms",
+      "kind": "T",
+      "unit": null
+    },
+    {
+      "number": "6540",
+      "name": "Fiktiva tjänster",
+      "kind": "K",
+      "unit": null
+    },
+    {
+      "number": "6570",
+      "name": "Fiktiva avgifter",
+      "kind": "K",
+      "unit": null
+    }
+  ],
+  "dimensions": [
+    {
+      "id": "1",
+      "name": "Avdelning",
+      "parent": null
+    }
+  ],
+  "objects": [
+    {
+      "dimension": "1",
+      "number": "A",
+      "name": "Fiktiv avdelning A"
+    },
+    {
+      "dimension": "1",
+      "number": "B",
+      "name": "Fiktiv avdelning B"
+    }
+  ],
+  "balances": [
+    {
+      "year": 0,
+      "month": null,
+      "account": "1930",
+      "quantity": null,
+      "kind": "opening",
+      "amount": "2000000",
+      "objects": [],
+      "at": {
+        "line": 27,
+        "byte_start": 585,
+        "byte_end": 605,
+        "record": 26
+      }
+    },
+    {
+      "year": 0,
+      "month": null,
+      "account": "2091",
+      "quantity": null,
+      "kind": "opening",
+      "amount": "-2000000",
+      "objects": [],
+      "at": {
+        "line": 28,
+        "byte_start": 605,
+        "byte_end": 626,
+        "record": 27
+      }
+    },
+    {
+      "year": 0,
+      "month": null,
+      "account": "1930",
+      "quantity": null,
+      "kind": "closing",
+      "amount": "1812500",
+      "objects": [],
+      "at": {
+        "line": 29,
+        "byte_start": 626,
+        "byte_end": 646,
+        "record": 28
+      }
+    },
+    {
+      "year": 0,
+      "month": null,
+      "account": "2091",
+      "quantity": null,
+      "kind": "closing",
+      "amount": "-2000000",
+      "objects": [],
+      "at": {
+        "line": 30,
+        "byte_start": 646,
+        "byte_end": 667,
+        "record": 29
+      }
+    },
+    {
+      "year": 0,
+      "month": null,
+      "account": "2440",
+      "quantity": null,
+      "kind": "closing",
+      "amount": "0",
+      "objects": [],
+      "at": {
+        "line": 31,
+        "byte_start": 667,
+        "byte_end": 683,
+        "record": 30
+      }
+    },
+    {
+      "year": 0,
+      "month": null,
+      "account": "2641",
+      "quantity": null,
+      "kind": "closing",
+      "amount": "37500",
+      "objects": [],
+      "at": {
+        "line": 32,
+        "byte_start": 683,
+        "byte_end": 701,
+        "record": 31
+      }
+    },
+    {
+      "year": 0,
+      "month": null,
+      "account": "6540",
+      "quantity": null,
+      "kind": "result",
+      "amount": "150000",
+      "objects": [],
+      "at": {
+        "line": 33,
+        "byte_start": 701,
+        "byte_end": 721,
+        "record": 32
+      }
+    },
+    {
+      "year": 0,
+      "month": "202601",
+      "account": "6540",
+      "quantity": null,
+      "kind": "period_movement",
+      "amount": "200000",
+      "objects": [
+        {
+          "dimension": "1",
+          "object": "A"
+        }
+      ],
+      "at": {
+        "line": 34,
+        "byte_start": 721,
+        "byte_end": 757,
+        "record": 33
+      }
+    },
+    {
+      "year": 0,
+      "month": "202602",
+      "account": "6540",
+      "quantity": null,
+      "kind": "period_movement",
+      "amount": "-50000",
+      "objects": [
+        {
+          "dimension": "1",
+          "object": "A"
+        }
+      ],
+      "at": {
+        "line": 35,
+        "byte_start": 757,
+        "byte_end": 793,
+        "record": 34
+      }
+    },
+    {
+      "year": 0,
+      "month": "202601",
+      "account": "6540",
+      "quantity": null,
+      "kind": "budget",
+      "amount": "300000",
+      "objects": [
+        {
+          "dimension": "1",
+          "object": "A"
+        }
+      ],
+      "at": {
+        "line": 36,
+        "byte_start": 793,
+        "byte_end": 830,
+        "record": 35
+      }
+    }
+  ],
+  "vouchers": [
+    {
+      "series": "A",
+      "number": "1",
+      "date": "20260115",
+      "text": "Fiktiv faktura",
+      "registered_on": "20260125",
+      "signature": "reviewer-a",
+      "rows": [
+        {
+          "account": "6570",
+          "date": null,
+          "text": "Fiktiv tjänst",
+          "quantity": null,
+          "signature": null,
+          "kind": "removed_history",
+          "amount": "200000",
+          "objects": [
+            {
+              "dimension": "1",
+              "object": "A"
+            }
+          ],
+          "at": {
+            "line": 39,
+            "byte_start": 889,
+            "byte_end": 935,
+            "record": 38
+          }
+        },
+        {
+          "account": "6540",
+          "date": null,
+          "text": "Fiktiv tjänst",
+          "quantity": null,
+          "signature": null,
+          "kind": "added_history",
+          "amount": "200000",
+          "objects": [
+            {
+              "dimension": "1",
+              "object": "A"
+            }
+          ],
+          "at": {
+            "line": 40,
+            "byte_start": 935,
+            "byte_end": 981,
+            "record": 39
+          }
+        },
+        {
+          "account": "6540",
+          "date": null,
+          "text": "Fiktiv tjänst",
+          "quantity": null,
+          "signature": null,
+          "kind": "final",
+          "amount": "200000",
+          "objects": [
+            {
+              "dimension": "1",
+              "object": "A"
+            }
+          ],
+          "at": {
+            "line": 41,
+            "byte_start": 981,
+            "byte_end": 1026,
+            "record": 40
+          }
+        },
+        {
+          "account": "2641",
+          "date": null,
+          "text": null,
+          "quantity": null,
+          "signature": null,
+          "kind": "final",
+          "amount": "50000",
+          "objects": [],
+          "at": {
+            "line": 42,
+            "byte_start": 1026,
+            "byte_end": 1048,
+            "record": 41
+          }
+        },
+        {
+          "account": "2440",
+          "date": null,
+          "text": null,
+          "quantity": null,
+          "signature": null,
+          "kind": "final",
+          "amount": "-250000",
+          "objects": [],
+          "at": {
+            "line": 43,
+            "byte_start": 1048,
+            "byte_end": 1072,
+            "record": 42
+          }
+        }
+      ],
+      "at": {
+        "line": 37,
+        "byte_start": 830,
+        "byte_end": 887,
+        "record": 36
+      }
+    },
+    {
+      "series": "A",
+      "number": "2",
+      "date": "20260120",
+      "text": "Fiktiv delbetalning",
+      "registered_on": null,
+      "signature": null,
+      "rows": [
+        {
+          "account": "2440",
+          "date": null,
+          "text": null,
+          "quantity": null,
+          "signature": null,
+          "kind": "final",
+          "amount": "100000",
+          "objects": [],
+          "at": {
+            "line": 47,
+            "byte_start": 1116,
+            "byte_end": 1139,
+            "record": 46
+          }
+        },
+        {
+          "account": "1930",
+          "date": null,
+          "text": null,
+          "quantity": null,
+          "signature": null,
+          "kind": "final",
+          "amount": "-100000",
+          "objects": [],
+          "at": {
+            "line": 48,
+            "byte_start": 1139,
+            "byte_end": 1163,
+            "record": 47
+          }
+        }
+      ],
+      "at": {
+        "line": 45,
+        "byte_start": 1074,
+        "byte_end": 1114,
+        "record": 44
+      }
+    },
+    {
+      "series": "A",
+      "number": "3",
+      "date": "20260205",
+      "text": "Fiktiv kreditnota",
+      "registered_on": null,
+      "signature": null,
+      "rows": [
+        {
+          "account": "2440",
+          "date": null,
+          "text": null,
+          "quantity": null,
+          "signature": null,
+          "kind": "final",
+          "amount": "62500",
+          "objects": [],
+          "at": {
+            "line": 52,
+            "byte_start": 1205,
+            "byte_end": 1227,
+            "record": 51
+          }
+        },
+        {
+          "account": "6540",
+          "date": null,
+          "text": null,
+          "quantity": null,
+          "signature": null,
+          "kind": "final",
+          "amount": "-50000",
+          "objects": [
+            {
+              "dimension": "1",
+              "object": "A"
+            }
+          ],
+          "at": {
+            "line": 53,
+            "byte_start": 1227,
+            "byte_end": 1253,
+            "record": 52
+          }
+        },
+        {
+          "account": "2641",
+          "date": null,
+          "text": null,
+          "quantity": null,
+          "signature": null,
+          "kind": "final",
+          "amount": "-12500",
+          "objects": [],
+          "at": {
+            "line": 54,
+            "byte_start": 1253,
+            "byte_end": 1276,
+            "record": 53
+          }
+        }
+      ],
+      "at": {
+        "line": 50,
+        "byte_start": 1165,
+        "byte_end": 1203,
+        "record": 49
+      }
+    },
+    {
+      "series": "A",
+      "number": "4",
+      "date": "20260210",
+      "text": "Fiktiv slutbetalning",
+      "registered_on": null,
+      "signature": null,
+      "rows": [
+        {
+          "account": "2440",
+          "date": null,
+          "text": null,
+          "quantity": null,
+          "signature": null,
+          "kind": "final",
+          "amount": "87500",
+          "objects": [],
+          "at": {
+            "line": 58,
+            "byte_start": 1321,
+            "byte_end": 1343,
+            "record": 57
+          }
+        },
+        {
+          "account": "1930",
+          "date": null,
+          "text": null,
+          "quantity": null,
+          "signature": null,
+          "kind": "final",
+          "amount": "-87500",
+          "objects": [],
+          "at": {
+            "line": 59,
+            "byte_start": 1343,
+            "byte_end": 1366,
+            "record": 58
+          }
+        }
+      ],
+      "at": {
+        "line": 56,
+        "byte_start": 1278,
+        "byte_end": 1319,
+        "record": 55
+      }
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+#FLAGGA 0
+#PROGRAM "SIEDiff fictional fixture" "1"
+#FORMAT PC8
+#GEN 20260301 "fixture-author"
+#SIETYP 4
+#ORGNR 000000-0000
+#FNAMN "SIEDiff Fiktiv AB"
+#VALUTA SEK
+#RAR 0 20260101 20261231
+#OMFATTN 20260228
+#KPTYP EUBAS97
+#KONTO 1930 "Fiktivt bankkonto"
+#KTYP 1930 T
+#KONTO 2091 "Fiktivt eget kapital"
+#KTYP 2091 S
+#KONTO 2440 "Fiktiv leverant”rsskuld"
+#KTYP 2440 S
+#KONTO 2641 "Fiktiv ing†ende moms"
+#KTYP 2641 T
+#KONTO 6540 "Fiktiva tj„nster"
+#KTYP 6540 K
+#KONTO 6570 "Fiktiva avgifter"
+#KTYP 6570 K
+#DIM 1 "Avdelning"
+#OBJEKT 1 A "Fiktiv avdelning A"
+#OBJEKT 1 B "Fiktiv avdelning B"
+#IB 0 1930 20000.00
+#IB 0 2091 -20000.00
+#UB 0 1930 18125.00
+#UB 0 2091 -20000.00
+#UB 0 2440 0.00
+#UB 0 2641 375.00
+#RES 0 6540 1500.00
+#PSALDO 0 202601 6540 {1 A} 2000.00
+#PSALDO 0 202602 6540 {1 A} -500.00
+#PBUDGET 0 202601 6540 {1 A} 3000.00
+#VER A 1 20260115 "Fiktiv faktura" 20260125 "reviewer-a"
+{
+#BTRANS 6570 {1 A} 2000.00 "" "Fiktiv tj„nst"
+#RTRANS 6540 {1 A} 2000.00 "" "Fiktiv tj„nst"
+#TRANS 6540 {1 A} 2000.00 "" "Fiktiv tj„nst"
+#TRANS 2641 {} 99999999999999999999999999999999999999999999999999.00
+#TRANS 2440 {} -2500.00
+}
+#VER A 2 20260120 "Fiktiv delbetalning"
+{
+#TRANS 2440 {} 1000.00
+#TRANS 1930 {} -1000.00
+}
+#VER A 3 20260205 "Fiktiv kreditnota"
+{
+#TRANS 2440 {} 625.00
+#TRANS 6540 {1 A} -500.00
+#TRANS 2641 {} -125.00
+}
+#VER A 4 20260210 "Fiktiv slutbetalning"
+{
+#TRANS 2440 {} 875.00
+#TRANS 1930 {} -875.00
+}

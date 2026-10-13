@@ -1,0 +1,669 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:siediff:policy:v1",
+  "$comment": "Candidate contract. Runtime enforces arithmetic, dates, mapping injectivity and input limits.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "mode": {
+      "enum": [
+        "identity",
+        "renumbered"
+      ]
+    },
+    "period": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/period"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "mapping": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/mapping"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "mode",
+    "period",
+    "mapping"
+  ],
+  "$defs": {
+    "money": {
+      "type": "string",
+      "pattern": "^-?(0|[1-9][0-9]*)$",
+      "$comment": "Runtime also enforces signed i128 range; values are hundredths."
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "period": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "type": "string",
+          "pattern": "^[0-9]{8}$"
+        },
+        "end": {
+          "type": "string",
+          "pattern": "^[0-9]{8}$"
+        }
+      },
+      "required": [
+        "start",
+        "end"
+      ]
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "line": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "byte_start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "byte_end": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "record": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "line",
+        "byte_start",
+        "byte_end",
+        "record"
+      ]
+    },
+    "assignment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dimension": {
+          "type": "string"
+        },
+        "object": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "dimension",
+        "object"
+      ]
+    },
+    "account": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "T",
+            "S",
+            "K",
+            "I",
+            null
+          ]
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "number",
+        "name",
+        "kind",
+        "unit"
+      ]
+    },
+    "dimension": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parent": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "parent"
+      ]
+    },
+    "object": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "dimension": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "dimension",
+        "number",
+        "name"
+      ]
+    },
+    "row": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "final",
+            "added_history",
+            "removed_history"
+          ]
+        },
+        "account": {
+          "type": "string"
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/assignment"
+          }
+        },
+        "amount": {
+          "$ref": "#/$defs/money"
+        },
+        "date": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "quantity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "signature": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "at": {
+          "$ref": "#/$defs/location"
+        }
+      },
+      "required": [
+        "kind",
+        "account",
+        "objects",
+        "amount",
+        "date",
+        "text",
+        "quantity",
+        "signature",
+        "at"
+      ]
+    },
+    "voucher": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "series": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "registered_on": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "signature": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/row"
+          }
+        },
+        "at": {
+          "$ref": "#/$defs/location"
+        }
+      },
+      "required": [
+        "series",
+        "number",
+        "date",
+        "text",
+        "registered_on",
+        "signature",
+        "rows",
+        "at"
+      ]
+    },
+    "balance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "opening",
+            "closing",
+            "result",
+            "object_opening",
+            "object_closing",
+            "period_movement",
+            "budget"
+          ]
+        },
+        "year": {
+          "type": "integer",
+          "minimum": -2147483648,
+          "maximum": 0
+        },
+        "month": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "account": {
+          "type": "string"
+        },
+        "objects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/assignment"
+          }
+        },
+        "amount": {
+          "$ref": "#/$defs/money"
+        },
+        "quantity": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "at": {
+          "$ref": "#/$defs/location"
+        }
+      },
+      "required": [
+        "kind",
+        "year",
+        "month",
+        "account",
+        "objects",
+        "amount",
+        "quantity",
+        "at"
+      ]
+    },
+    "mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "siediff.mapping.v1"
+        },
+        "left_sha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "right_sha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "review_ref": {
+          "type": "string"
+        },
+        "accounts": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "dimensions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "objects": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "schema",
+        "left_sha256",
+        "right_sha256",
+        "review_ref",
+        "accounts",
+        "dimensions",
+        "objects"
+      ]
+    },
+    "policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "identity",
+            "renumbered"
+          ]
+        },
+        "period": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/period"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "mapping": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/mapping"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "mode",
+        "period",
+        "mapping"
+      ]
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "pass",
+            "fail",
+            "indeterminate",
+            "not_applicable"
+          ]
+        },
+        "message": {
+          "type": "string"
+        },
+        "locations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/location"
+          }
+        }
+      },
+      "required": [
+        "code",
+        "status",
+        "message",
+        "locations"
+      ]
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "schema": {
+          "const": "siediff.validation.v1"
+        },
+        "status": {
+          "enum": [
+            "pass",
+            "fail",
+            "indeterminate",
+            "not_applicable"
+          ]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/finding"
+          }
+        },
+        "findings_truncated": {
+          "type": "boolean"
+        },
+        "totals": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "vouchers": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "final_rows": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "history_rows": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "final_sum": {
+              "$ref": "#/$defs/money"
+            }
+          },
+          "required": [
+            "vouchers",
+            "final_rows",
+            "history_rows",
+            "final_sum"
+          ]
+        }
+      },
+      "required": [
+        "schema",
+        "status",
+        "findings",
+        "findings_truncated",
+        "totals"
+      ]
+    },
+    "assertion": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "pass",
+            "fail",
+            "indeterminate",
+            "not_applicable"
+          ]
+        },
+        "statement": {
+          "type": "string"
+        },
+        "premises": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rule_version": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "status",
+        "statement",
+        "premises",
+        "rule_version"
+      ]
+    },
+    "requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "state": {
+          "enum": [
+            "satisfied",
+            "missing",
+            "unknown",
+            "refuted"
+          ]
+        },
+        "route": {
+          "enum": [
+            "request_evidence",
+            "review_treatment",
+            "review_correction"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "state",
+        "route"
+      ]
+    },
+    "inventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "before": {
+          "$ref": "#/$defs/hash"
+        },
+        "after": {
+          "$ref": "#/$defs/hash"
+        },
+        "coverage": {
+          "enum": [
+            "complete_asserted",
+            "partial",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "before",
+        "after",
+        "coverage"
+      ]
+    },
+    "relationships": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "coverage": {
+          "enum": [
+            "complete_asserted",
+            "partial",
+            "unknown"
+          ]
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "voucher": {
+                "type": "string"
+              },
+              "corrects": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "voucher",
+              "corrects"
+            ]
+          }
+        }
+      },
+      "required": [
+        "coverage",
+        "links"
+      ]
+    }
+  }
+}

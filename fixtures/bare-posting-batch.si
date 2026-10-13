@@ -1,0 +1,11 @@
+#FLAGGA 0
+#PROGRAM "Fictional preprocessor" "1"
+#FORMAT PC8
+#GEN 20260301
+#SIETYP 4
+#FNAMN "Fictional company"
+#VER "" "" 20260115
+{
+#TRANS 6540 {} 100.00
+#TRANS 1930 {} -100.00
+}

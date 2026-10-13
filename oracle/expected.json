@@ -1,0 +1,26 @@
+{
+  "schema": "siediff.authored-expectations.v1",
+  "status": "author-defined; independent accountant review outstanding",
+  "cases": [
+    {"right":"base.se","mode":"identity","claim":"supplied_postings","expected":"pass"},
+    {"right":"base.se","mode":"identity","claim":"migration_readiness","expected":"indeterminate"},
+    {"right":"renumbered.se","mode":"identity","claim":"supplied_postings","expected":"fail"},
+    {"right":"renumbered.se","mode":"renumbered","claim":"supplied_postings","expected":"pass"},
+    {"right":"whitespace.se","mode":"identity","claim":"supplied_postings","expected":"pass"},
+    {"right":"history-omitted.se","mode":"identity","claim":"supplied_postings","expected":"pass"},
+    {"right":"history-omitted.se","mode":"identity","claim":"retained_history","expected":"fail"},
+    {"right":"dimension-changed.se","mode":"renumbered","claim":"supplied_postings","expected":"fail"},
+    {"right":"date-changed.se","mode":"renumbered","claim":"supplied_postings","expected":"fail"},
+    {"right":"wrong-account.se","mode":"renumbered","claim":"supplied_postings","expected":"fail"},
+    {"right":"regrouped.se","mode":"renumbered","claim":"supplied_postings","expected":"fail"},
+    {"right":"duplicate-new-id.se","mode":"renumbered","claim":"supplied_postings","expected":"fail"},
+    {"right":"duplicate-id.se","mode":"renumbered","claim":"supplied_postings","expected":"fail"},
+    {"right":"wrong-entity.se","mode":"renumbered","claim":"supplied_postings","expected":"fail"},
+    {"right":"wrong-currency.se","mode":"renumbered","claim":"supplied_postings","expected":"fail"},
+    {"right":"unknown-extension.se","mode":"renumbered","claim":"supplied_postings","expected":"indeterminate"},
+    {"right":"missing-zero-control.se","mode":"identity","claim":"declared_balances","expected":"fail"},
+    {"right":"base.snapshot.json","right_format":"snapshot","mode":"identity","claim":"supplied_postings","expected":"pass"},
+    {"right":"base.posted.snapshot.json","right_format":"snapshot","mode":"identity","claim":"supplied_postings","expected":"pass"},
+    {"right":"base.posted.snapshot.json","right_format":"snapshot","mode":"identity","claim":"retained_history","expected":"indeterminate"}
+  ]
+}
