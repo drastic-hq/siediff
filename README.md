@@ -10,8 +10,6 @@ It reports three things separately:
 
 It is a read-only observer. It does not judge whether the accounting is correct, does not approve a migration, and does not write to any ledger. An exit status of 0 means the selected check passed. It does not mean the books are right.
 
-Maintained by Drastic (https://drastic.dev).
-
 Try it in the browser: https://drastic.dev/sie-diff
 
 ## Install and build
